@@ -1,0 +1,4 @@
+export enum ApiTagsEnum {
+  GET_CONTESTS = 'GET_CONTESTS',
+  GET_CONTEST_BY_ID = 'GET_CONTEST_BY_ID',
+}

@@ -60,3 +60,18 @@ export type ScoreContestReqBody = {
   winning_number_bonus: number;
   prize_draw_winner_ticket_number: number;
 };
+
+export type GetOutcomesRes = {
+  outcomes: OutcomeType[];
+};
+
+export type OutcomeType = {
+  id: number;
+  title: string;
+  description: string;
+  odds: number;
+  end_date: string;
+  is_scored: number;
+  created_at: string;
+  bets_count: number;
+};

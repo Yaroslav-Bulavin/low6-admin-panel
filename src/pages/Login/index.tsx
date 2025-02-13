@@ -55,7 +55,7 @@ const LoginPage: React.FC = () => {
         formData as GenerateAdminTokenReqBody,
       ).unwrap();
       setJwt(res?.token);
-      navigate(RoutesEnum.contests);
+      navigate(RoutesEnum.dashboard);
     } catch (e) {
       console.log(e);
     }

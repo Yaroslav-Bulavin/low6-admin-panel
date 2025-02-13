@@ -94,7 +94,7 @@ export const TotalSpent: React.FC<TotalSpentProps> = () => {
         <Box minH='260px' minW='75%' mt='auto'>
           <ReactApexChart
             height='100%'
-            options={lineChartOptionsTotalSpent}
+            options={lineChartOptionsTotalSpent as any}
             series={lineChartDataTotalSpent}
             type='line'
             width='100%'

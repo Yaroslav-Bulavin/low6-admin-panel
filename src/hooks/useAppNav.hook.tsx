@@ -29,19 +29,19 @@ export const useAppNav = () => {
     () => [
       {
         name: 'Dashboard',
-        path: '/dashboard', //TODO: add enum
+        path: RoutesEnum.dashboard, //TODO: add enum
         icon: <Icon as={MdHome} color='inherit' height='20px' width='20px' />,
         // component: <MainDashboard />,
       },
       {
         name: 'Outcomes',
-        path: '/outcomes',
+        path: RoutesEnum.outcomes,
         icon: <Icon as={MdHome} color='inherit' height='20px' width='20px' />,
         // component: <MainDashboard />,
       },
       {
         name: 'Bets',
-        path: '/bets',
+        path: RoutesEnum.bets,
         icon: <Icon as={MdHome} color='inherit' height='20px' width='20px' />,
         // component: <MainDashboard />,
       },

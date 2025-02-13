@@ -3,17 +3,10 @@ import React from 'react';
 
 import { Box, Flex, Stack } from '@chakra-ui/react';
 
-//   Custom components
 import Brand from '@/components/Layout/Sidebar/Brand';
 import Links from '@/components/Layout/Sidebar/Links';
-import SidebarCard from '@/components/Layout/Sidebar/SidebarCard';
 
-// FUNCTIONS
-
-// TODO: remove
-function SidebarContent(props: any) {
-  const { routes } = props;
-  // SIDEBAR
+function SidebarContent() {
   return (
     <Flex
       borderRadius='30px'
@@ -25,13 +18,9 @@ function SidebarContent(props: any) {
       <Brand />
       <Stack direction='column' mb='auto' mt='8px'>
         <Box pe={{ md: '16px', '2xl': '1px' }} ps='20px'>
-          <Links routes={routes} />
+          <Links />
         </Box>
       </Stack>
-
-      <Box borderRadius='30px' mb='40px' mt='60px'>
-        <SidebarCard />
-      </Box>
     </Flex>
   );
 }

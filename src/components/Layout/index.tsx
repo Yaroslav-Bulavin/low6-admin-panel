@@ -18,12 +18,17 @@ import { SidebarDesktop } from '@/components/Layout/Sidebar/desktop';
 import { useAppNav } from '@/hooks/useAppNav.hook';
 
 const Layout: React.FC = () => {
-  const { navLinks } = useAppNav();
   return (
     <Flex h='100%' w='100%'>
-      <SidebarDesktop routes={navLinks} />
+      <SidebarDesktop />
 
-      <Flex flexDirection='column' h='100%' w='100%'>
+      <Flex
+        flexDirection='column'
+        h='100%'
+        maxW='calc(100% - 300px)'
+        ml='auto'
+        w='calc(100% - 300px)'
+      >
         <Flex justifyContent='flex-end' px='40px' py='16px' w='100%'>
           <Menu>
             <MenuButton

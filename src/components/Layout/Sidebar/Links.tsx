@@ -2,112 +2,49 @@ import React from 'react';
 
 import { Box, Flex, HStack, Text } from '@chakra-ui/react';
 import { NavLink, useLocation } from 'react-router-dom';
+
+import { useAppNav } from '@/hooks/useAppNav.hook';
 // chakra imports
 
-export function SidebarLinks(props: { routes: any[] }) {
-  //   Chakra color mode
+export function SidebarLinks() {
   const location = useLocation();
 
-  const { routes } = props;
+  const { navLinks } = useAppNav();
 
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName: string) => {
     return location.pathname.includes(routeName);
   };
 
-  // this function creates the links from the secondary accordions (for example auth -> sign-in -> default)
-  const createLinks: any = (routes: any[]) => {
-    return routes.map((route, index) => {
-      if (route.category) {
-        return (
-          <>
-            <Text
-              color={'gray.700'}
-              fontSize={'md'}
-              fontWeight='bold'
-              key={index}
-              mx='auto'
-              pb='12px'
-              ps={{
-                sm: '10px',
-                xl: '16px',
-              }}
-              pt='18px'
-            >
-              {route.name}
-            </Text>
-            {createLinks(route.items)}
-          </>
-        );
-      } else if (
-        route.layout === '/admin' ||
-        route.layout === '/auth' ||
-        route.layout === '/rtl'
-      ) {
-        return (
-          <NavLink key={index} to={route.layout + route.path}>
-            {route.icon ? (
-              <Box>
-                <HStack
-                  ps='10px'
-                  py='5px'
-                  spacing={
-                    activeRoute(route.path.toLowerCase()) ? '22px' : '26px'
-                  }
-                >
-                  <Flex alignItems='center' justifyContent='center' w='100%'>
-                    <Box
-                      color={
-                        activeRoute(route.path.toLowerCase())
-                          ? 'brand.500'
-                          : 'secondaryGray.500'
-                      }
-                      me='18px'
-                    >
-                      {route.icon}
-                    </Box>
-                    <Text
-                      color={
-                        activeRoute(route.path.toLowerCase())
-                          ? 'gray.700'
-                          : 'secondaryGray.500'
-                      }
-                      fontWeight={
-                        activeRoute(route.path.toLowerCase())
-                          ? 'bold'
-                          : 'normal'
-                      }
-                      me='auto'
-                    >
-                      {route.name}
-                    </Text>
-                  </Flex>
+  return (
+    <>
+      {navLinks.map((route, index) => (
+        <NavLink key={index} to={route.path}>
+          {route.icon ? (
+            <Box>
+              <HStack
+                ps='10px'
+                py='5px'
+                spacing={
+                  activeRoute(route.path.toLowerCase()) ? '22px' : '26px'
+                }
+              >
+                <Flex alignItems='center' justifyContent='center' w='100%'>
                   <Box
-                    bg={
+                    color={
                       activeRoute(route.path.toLowerCase())
                         ? 'brand.500'
-                        : 'transparent'
+                        : 'secondaryGray.500'
                     }
-                    borderRadius='5px'
-                    h='36px'
-                    w='4px'
-                  />
-                </HStack>
-              </Box>
-            ) : (
-              <Box>
-                <HStack
-                  ps='10px'
-                  py='5px'
-                  spacing={
-                    activeRoute(route.path.toLowerCase()) ? '22px' : '26px'
-                  }
-                >
+                    me='18px'
+                  >
+                    {route.icon}
+                  </Box>
                   <Text
                     color={
                       activeRoute(route.path.toLowerCase())
                         ? 'gray.700'
-                        : 'secondaryGray.600'
+                        : 'secondaryGray.500'
                     }
                     fontWeight={
                       activeRoute(route.path.toLowerCase()) ? 'bold' : 'normal'
@@ -116,17 +53,49 @@ export function SidebarLinks(props: { routes: any[] }) {
                   >
                     {route.name}
                   </Text>
-                  <Box bg='brand.400' borderRadius='5px' h='36px' w='4px' />
-                </HStack>
-              </Box>
-            )}
-          </NavLink>
-        );
-      }
-    });
-  };
-
-  return createLinks(routes);
+                </Flex>
+                <Box
+                  bg={
+                    activeRoute(route.path.toLowerCase())
+                      ? 'brand.500'
+                      : 'transparent'
+                  }
+                  borderRadius='5px'
+                  h='36px'
+                  w='4px'
+                />
+              </HStack>
+            </Box>
+          ) : (
+            <Box>
+              <HStack
+                ps='10px'
+                py='5px'
+                spacing={
+                  activeRoute(route.path.toLowerCase()) ? '22px' : '26px'
+                }
+              >
+                <Text
+                  color={
+                    activeRoute(route.path.toLowerCase())
+                      ? 'gray.700'
+                      : 'secondaryGray.600'
+                  }
+                  fontWeight={
+                    activeRoute(route.path.toLowerCase()) ? 'bold' : 'normal'
+                  }
+                  me='auto'
+                >
+                  {route.name}
+                </Text>
+                <Box bg='brand.400' borderRadius='5px' h='36px' w='4px' />
+              </HStack>
+            </Box>
+          )}
+        </NavLink>
+      ))}
+    </>
+  );
 }
 
 export default SidebarLinks;

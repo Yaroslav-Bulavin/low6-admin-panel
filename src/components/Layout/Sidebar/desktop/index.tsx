@@ -7,32 +7,17 @@ import Content from '@/components/Layout/Sidebar/Content';
 
 import { renderThumb, renderTrack, renderView } from '@/elements/Scrollbar';
 
-interface SidebarDesktopProps {
-  routes: any[];
-}
-export function SidebarDesktop(props: SidebarDesktopProps) {
-  const { routes } = props;
-
-  const variantChange = '0.2s linear';
-
-  const sidebarMargins = '0px';
-
-  // SIDEBAR
+export function SidebarDesktop() {
   return (
-    <Box
-      display={{ sm: 'none', xl: 'block' }}
-      minH='100%'
-      position='fixed'
-      w='100%'
-    >
+    <Box minH='100%' position='fixed' w='100%'>
       <Box
         bg={'white'}
         boxShadow={'14px 17px 40px 4px rgba(112, 144, 176, 0.08)'}
         h='100vh'
-        m={sidebarMargins}
+        m={'0px'}
         minH='100%'
         overflowX='hidden'
-        transition={variantChange}
+        transition={'0.2s linear'}
         w='300px'
       >
         <Scrollbars
@@ -41,7 +26,7 @@ export function SidebarDesktop(props: SidebarDesktopProps) {
           renderTrackVertical={renderTrack}
           renderView={renderView}
         >
-          <Content routes={routes} />
+          <Content />
         </Scrollbars>
       </Box>
     </Box>

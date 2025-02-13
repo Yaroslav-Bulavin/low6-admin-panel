@@ -17,18 +17,9 @@ import Content from '@/components/Layout/Sidebar/Content';
 
 import { renderThumb, renderTrack, renderView } from '@/elements/Scrollbar';
 
-interface SidebarMobileProps {
-  routes: any[];
-}
-
-export function SidebarMobile(props: SidebarMobileProps) {
-  // // SIDEBAR
+export function SidebarMobile() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef<HTMLDivElement | null>(null);
-
-  const { routes } = props;
-  // let isWindows = navigator.platform.startsWith("Win");
-  //  BRAND
 
   return (
     <Flex alignItems='center' display={{ sm: 'flex', xl: 'none' }}>
@@ -63,7 +54,7 @@ export function SidebarMobile(props: SidebarMobileProps) {
               renderTrackVertical={renderTrack}
               renderView={renderView}
             >
-              <Content routes={routes} />
+              <Content />
             </Scrollbars>
           </DrawerBody>
         </DrawerContent>

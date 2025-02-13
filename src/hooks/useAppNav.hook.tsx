@@ -17,7 +17,6 @@ import { RoutesEnum } from '@/enums/routes.enum';
 
 export type AppNavType = {
   name: string;
-  layout: string;
   path: string;
   icon: React.ReactNode;
   secondary?: boolean;
@@ -30,48 +29,21 @@ export const useAppNav = () => {
     () => [
       {
         name: 'Dashboard',
-        layout: '/admin',
-        path: '/default',
+        path: '/dashboard', //TODO: add enum
         icon: <Icon as={MdHome} color='inherit' height='20px' width='20px' />,
         // component: <MainDashboard />,
       },
       {
-        name: 'NFT Marketplace',
-        layout: '/admin',
-        path: '/nft-marketplace',
-        icon: (
-          <Icon
-            as={MdOutlineShoppingCart}
-            color='inherit'
-            height='20px'
-            width='20px'
-          />
-        ),
-        // component: <NFTMarketplace />,
-        secondary: true,
+        name: 'Outcomes',
+        path: '/outcomes',
+        icon: <Icon as={MdHome} color='inherit' height='20px' width='20px' />,
+        // component: <MainDashboard />,
       },
       {
-        name: 'Data Tables',
-        layout: '/admin',
-        icon: (
-          <Icon as={MdBarChart} color='inherit' height='20px' width='20px' />
-        ),
-        path: '/data-tables',
-        // component: <DataTables />,
-      },
-      {
-        name: 'Profile',
-        layout: '/admin',
-        path: '/profile',
-        icon: <Icon as={MdPerson} color='inherit' height='20px' width='20px' />,
-        // component: <Profile />,
-      },
-      {
-        name: 'Sign In',
-        layout: '/auth',
-        path: '/sign-in',
-        icon: <Icon as={MdLock} color='inherit' height='20px' width='20px' />,
-        // component: <SignInCentered />,
+        name: 'Bets',
+        path: '/bets',
+        icon: <Icon as={MdHome} color='inherit' height='20px' width='20px' />,
+        // component: <MainDashboard />,
       },
     ],
     [pathname],

@@ -5,4 +5,5 @@ export enum RoutesEnum {
   pages = '/pages',
   contest = '/contest/:id',
   login = '/login',
+  dashboard = '/dashboard',
 }
